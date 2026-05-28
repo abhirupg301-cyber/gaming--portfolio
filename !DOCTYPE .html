@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Futuristic Gaming Portfolio</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(-45deg,#020617,#0f172a,#111827,#1e1b4b,#0f172a);
+    background-size:400% 400%;
+    animation:gradientBG 15s ease infinite;
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image:
+    radial-gradient(circle at 20% 20%,rgba(56,189,248,0.2),transparent 25%),
+    radial-gradient(circle at 80% 30%,rgba(139,92,246,0.2),transparent 25%),
+    radial-gradient(circle at 50% 80%,rgba(34,211,238,0.2),transparent 25%);
+    z-index:-2;
+}
+
+/* Floating Neon Circles */
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(56,189,248,0.15);
+    backdrop-filter:blur(10px);
+    animation:float 10s infinite ease-in-out;
+    z-index:-1;
+}
+
+.circle1{
+    width:180px;
+    height:180px;
+    top:120px;
+    left:-50px;
+}
+
+.circle2{
+    width:250px;
+    height:250px;
+    bottom:100px;
+    right:-80px;
+}
+
+.circle3{
+    width:120px;
+    height:120px;
+    top:60%;
+    left:45%;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-25px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes gradientBG{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* Navbar */
+
+.navbar{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    padding:15px 0;
+    z-index:1000;
+    box-shadow:0 0 20px rgba(56,189,248,0.2);
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+.navbar .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.nav-brand{
+    font-size:1.7rem;
+    font-weight:bold;
+    color:#38bdf8;
+    text-shadow:0 0 15px #38bdf8;
+}
+
+.nav-menu{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-link{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    position:relative;
+}
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#38bdf8;
+    left:0;
+    bottom:-5px;
+    transition:0.3s;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+.nav-link:hover{
+    color:#38bdf8;
+}
+
+/* Hero Section */
+
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    position:relative;
+}
+
+.hero-content{
+    width:100%;
+    z-index:10;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    text-shadow:0 0 20px rgba(56,189,248,0.8);
+}
+
+.highlight{
+    color:#38bdf8;
+    text-shadow:0 0 20px #38bdf8;
+}
+
+.subtitle{
+    margin-top:15px;
+    font-size:1.5rem;
+    color:#cbd5e1;
+    letter-spacing:2px;
+}
+
+.description{
+    margin-top:20px;
+    color:#e2e8f0;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.8;
+}
+
+/* Hero Decorative Elements */
+
+.hero-icons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.hero-icons i{
+    font-size:2rem;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    color:#38bdf8;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 20px rgba(56,189,248,0.4);
+    transition:0.4s;
+    animation:float 6s infinite ease-in-out;
+}
+
+.hero-icons i:hover{
+    transform:translateY(-10px) scale(1.1);
+    box-shadow:0 0 35px rgba(56,189,248,0.8);
+}
+
+/* Futuristic Stats */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:50px;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    min-width:220px;
+    border-radius:20px;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(56,189,248,0.5);
+}
+
+.stat-box h2{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.btn{
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    margin-top:25px;
+    display:inline-block;
+    transition:0.4s;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:linear-gradient(45deg,#38bdf8,#0ea5e9);
+    color:white;
+    box-shadow:0 0 20px rgba(56,189,248,0.5);
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* Sections */
+
+section{
+    padding:100px 0;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.8rem;
+    color:#38bdf8;
+    text-shadow:0 0 15px rgba(56,189,248,0.7);
+}
+
+/* Gaming Grid */
+
+.gaming-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.gaming-card{
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.4s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.gaming-card::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(45deg,transparent,rgba(56,189,248,0.15),transparent);
+    top:-100%;
+    left:0;
+    transition:0.5s;
+}
+
+.gaming-card:hover::before{
+    top:100%;
+}
+
+.gaming-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(56,189,248,0.5);
+}
+
+.gaming-icon{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+
+/* Games */
+
+.games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.game-card{
+    background:rgba(255,255,255,0.08);
+    border-radius:25px;
+    overflow:hidden;
+    transition:0.4s;
+    backdrop-filter:blur(12px);
+}
+
+.game-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(56,189,248,0.5);
+}
+
+.game-image{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.game-content{
+    padding:20px;
+}
+
+/* Pages */
+
+#collectionPage,
+#videosPage,
+#communityPage{
+    display:none;
+    min-height:100vh;
+    padding-top:120px;
+}
+
+/* Titles */
+
+.collection-title,
+.video-title,
+.community-title{
+    text-align:center;
+    font-size:3rem;
+    color:#38bdf8;
+    margin-bottom:20px;
+    text-shadow:0 0 25px #38bdf8;
+}
+
+.video-subtitle,
+.community-subtitle{
+    text-align:center;
+    font-size:1.3rem;
+    margin-bottom:40px;
+    color:#ffffff;
+    letter-spacing:2px;
+}
+
+/* Banners */
+
+.gaming-banner,
+.community-banner{
+    width:100%;
+    padding:60px 20px;
+    border-radius:25px;
+    text-align:center;
+    margin-bottom:60px;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1400&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    box-shadow:0 0 40px rgba(56,189,248,0.5);
+}
+
+/* Footer */
+
+.footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    margin-top:50px;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.stats{
+    flex-direction:column;
+    align-items:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Objects -->
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+<div class="container">
+
+<div class="nav-brand">
+<i class="fas fa-gamepad"></i> Portfolio
+</div>
+
+<ul class="nav-menu">
+<li><a href="#home" class="nav-link">Home</a></li>
+<li><a href="#gaming" class="nav-link">Gaming</a></li>
+<li><a href="#games" class="nav-link">Games</a></li>
+</ul>
+
+</div>
+
+</nav>
+
+<!-- Main Page -->
+
+<div id="mainPage">
+
+<section id="home" class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<h1>
+WELCOME TO
+<span class="highlight">ABHIRUP'S UNIVERSE</span>
+</h1>
+
+<p class="subtitle">
+Gamer • Influencer • Full Stack Developer
+</p>
+
+<p class="description">
+Experience futuristic gaming vibes, livestream adventures,
+battle royale action, immersive FPS gameplay,
+and modern web development in one stylish portfolio.
+</p>
+
+<a href="#gaming" class="btn btn-primary">
+ENTER GAMING WORLD
+</a>
+
+<!-- Futuristic Icons -->
+
+<div class="hero-icons">
+
+<i class="fas fa-gamepad"></i>
+<i class="fas fa-headset"></i>
+<i class="fas fa-ghost"></i>
+<i class="fas fa-robot"></i>
+<i class="fas fa-vr-cardboard"></i>
+
+</div>
+
+<!-- Stats -->
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>500K+</h2>
+<p>Gaming Views</p>
+</div>
+
+<div class="stat-box">
+<h2>120+</h2>
+<p>Epic Streams</p>
+</div>
+
+<div class="stat-box">
+<h2>50K+</h2>
+<p>Community Members</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Gaming Section -->
+
+<section id="gaming">
+
+<div class="container">
+
+<h2>My Gaming Journey</h2>
+
+<div class="gaming-grid">
+
+<div class="gaming-card" onclick="openCollectionPage()">
+
+<div class="gaming-icon">
+<i class="fas fa-gamepad"></i>
+</div>
+
+<h3>FPS Battles</h3>
+
+<p>
+Click to explore favourite game collections.
+</p>
+
+</div>
+
+<div class="gaming-card" onclick="openVideosPage()">
+
+<div class="gaming-icon">
+<i class="fas fa-video"></i>
+</div>
+
+<h3>Gaming Content Creator</h3>
+
+<p>
+Watch exciting gaming videos and livestreams.
+</p>
+
+</div>
+
+<div class="gaming-card" onclick="openCommunityPage()">
+
+<div class="gaming-icon">
+<i class="fas fa-users"></i>
+</div>
+
+<h3>Gaming Community</h3>
+
+<p>
+Join Abhirup's gaming community on Discord.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Games Section -->
+
+<section id="games">
+
+<div class="container">
+
+<h2>Explore My Favorite Games</h2>
+
+<div class="games-grid">
+
+<div class="game-card">
+
+<img
+src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop"
+class="game-image">
+
+<div class="game-content">
+<h3>FPS Battles</h3>
+<p>Fast-paced tactical action gaming.</p>
+</div>
+
+</div>
+
+<div class="game-card">
+
+<img
+src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop"
+class="game-image">
+
+<div class="game-content">
+<h3>Battle Royale</h3>
+<p>Thrilling multiplayer survival combat.</p>
+</div>
+
+</div>
+
+<div class="game-card">
+
+<img
+src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=1200&auto=format&fit=crop"
+class="game-image">
+
+<div class="game-content">
+<h3>Racing Games</h3>
+<p>Immersive high-speed racing adventures.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<!-- Community Page -->
+
+<div id="communityPage">
+
+<div class="container">
+
+<h1 class="community-title">
+JOIN ABHIRUP AND HAVE ULTIMATE EXP ON GAMES
+</h1>
+
+<p class="community-subtitle">
+Official Gaming Discord Community
+</p>
+
+<div class="community-banner">
+
+<h2>WELCOME TO ALEX_is_pro123</h2>
+
+<p>
+Join the Discord server and enjoy gaming,
+chatting, tournaments, livestreams and multiplayer fun.
+</p>
+
+<br><br>
+
+<a
+href="https:/abhirupplayzzz.dis"
+target="_blank"
+class="btn btn-primary">
+
+JOIN SERVER
+
+</a>
+
+</div>
+
+<div style="text-align:center; margin-top:50px;">
+
+<button class="btn btn-primary" onclick="backCommunity()">
+Back To Portfolio
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="footer">
+<p>© 2026 Abhirup Ghosh | Futuristic Gaming Portfolio</p>
+</footer>
+
+<script>
+
+/* Community Page */
+
+function openCommunityPage(){
+
+    document.getElementById("mainPage").style.display="none";
+    document.getElementById("communityPage").style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function backCommunity(){
+
+    document.getElementById("communityPage").style.display="none";
+    document.getElementById("mainPage").style.display="block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
